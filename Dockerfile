@@ -31,6 +31,8 @@ COPY . .
 # Disable Next.js telemetry (optional)
 ENV NEXT_TELEMETRY_DISABLED 1
 
+ARG NEXT_PUBLIC_API_URL
+ENV NEXT_PUBLIC_API_URL=$NEXT_PUBLIC_API_URL
 # Build the app
 # This runs "next build --turbopack" as defined in your package.json
 RUN npm run build
