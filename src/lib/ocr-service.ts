@@ -1,6 +1,6 @@
 import { FileMetadata, InitiateUploadResponse, OCRFinalResult } from "@/types/ocr";
 
-const API_BASE_URL = "http://165.232.160.186:8000/api";
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL;
 
 // Helper to get token
 const getAuthHeader = () => {
