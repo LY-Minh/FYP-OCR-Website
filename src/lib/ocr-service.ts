@@ -16,7 +16,7 @@ export async function processOCRJob(files: File[]): Promise<OCRFinalResult[]> {
     content_type: f.type,
   }));
 
-  const initResp = await fetch(`${API_BASE_URL}/initiate-uploads`, {
+  const initResp = await fetch(`${API_BASE_URL}/ocr/initiate-uploads`, {
     method: "POST",
     headers: { 
       "Content-Type": "application/json",
@@ -48,7 +48,7 @@ export async function processOCRJob(files: File[]): Promise<OCRFinalResult[]> {
   }
 
   // 3. Trigger OCR Processing (Authenticated)
-  const ocrResp = await fetch(`${API_BASE_URL}/get-ocr-results`, {
+  const ocrResp = await fetch(`${API_BASE_URL}/ocr/get-ocr-results`, {
     method: "POST",
     headers: { 
       "Content-Type": "application/json",
