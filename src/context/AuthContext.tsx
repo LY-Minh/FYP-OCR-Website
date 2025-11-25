@@ -1,6 +1,6 @@
 "use client";
 
-const API_BASE_URL = "http://103.253.145.16:8000";
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
 import { createContext, useContext, useState, ReactNode, useEffect } from "react";
 
