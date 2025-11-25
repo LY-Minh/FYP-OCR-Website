@@ -38,4 +38,6 @@ jobs:
           push: true
           # NOTICE: We use the lowercase env variable here
           tags: ghcr.io/${{ env.REPO_LC }}:latest 
+          build-args: |
+            NEXT_PUBLIC_API_URL=https://api.fypocr.site
  
