@@ -59,7 +59,7 @@ export default function Hero() {
           
           <div className="relative aspect-square md:aspect-[4/3]">
             <Image
-              src="/pic1.png" // Ensure this image exists in your public folder
+              src="/img1.jpg" // Ensure this image exists in your public folder
               alt="OCR Scanner App Interface"
               fill
               className="object-contain drop-shadow-2xl"

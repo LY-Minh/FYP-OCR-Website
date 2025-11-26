@@ -9,7 +9,7 @@ export default function Footer() {
           {/* Brand Column */}
           <div className="space-y-4">
             <Link href="/" className="inline-block">
-              <div className="p-2 bg-white/5 rounded-lg border border-white/10 inline-block">
+              <div className="p-2 rounded-lg inline-block">
                  <Image src="/ocr.jpg" alt="Logo" width={100} height={30} className="object-contain" />
               </div>
             </Link>
