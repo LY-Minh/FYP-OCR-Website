@@ -81,7 +81,7 @@ export default function Hero() {
             </button>
             <iframe
               className="w-full h-full"
-              src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1" // Replace with your actual video ID
+              src="https://www.youtube.com/embed/HD8lzvPAYYA?autoplay=1&mute=1&rel=0"
               title="OCR Demo Video"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
