@@ -1,7 +1,7 @@
 
 // src/lib/auth-service.ts
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL; // Replace with your actual API URL
+const API_BASE_URL = "http://api.fypocr.site"; // Replace with your actual API URL
 
 export type LoginCredentials = {
   username: string; // Backend uses OAuth2PasswordRequestForm which expects 'username'
