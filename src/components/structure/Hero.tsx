@@ -59,7 +59,7 @@ export default function Hero() {
           
           <div className="relative aspect-square md:aspect-[4/3]">
             <Image
-              src="/pic1.png" // Ensure this image exists in your public folder
+              src="/img1.jpg" // Ensure this image exists in your public folder
               alt="OCR Scanner App Interface"
               fill
               className="object-contain drop-shadow-2xl"
@@ -81,7 +81,7 @@ export default function Hero() {
             </button>
             <iframe
               className="w-full h-full"
-              src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1" // Replace with your actual video ID
+              src="https://www.youtube.com/embed/HD8lzvPAYYA?autoplay=1&mute=1&rel=0"
               title="OCR Demo Video"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen

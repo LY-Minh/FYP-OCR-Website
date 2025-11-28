@@ -25,18 +25,18 @@ jobs:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      # 1. ADD THIS STEP to lowercase the name
+   
       - name: Lowercase the repo name
         run: |
           echo "REPO_LC=${GITHUB_REPOSITORY,,}" >> ${GITHUB_ENV}
 
-      # 2. Update your build step to use ${{ env.REPO_LC }} instead of ${{ github.repository }}
+
       - name: Build and push
         uses: docker/build-push-action@v5
         with:
           context: .
           push: true
-          # NOTICE: We use the lowercase env variable here
+
           tags: ghcr.io/${{ env.REPO_LC }}:latest 
           build-args: |
             NEXT_PUBLIC_API_URL=https://api.fypocr.site

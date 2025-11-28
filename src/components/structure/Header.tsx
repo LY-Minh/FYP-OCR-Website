@@ -28,7 +28,7 @@ export default function Header() {
         {/* ... (Header layout remains the same) ... */}
         <div className="container mx-auto px-4 md:px-6 h-16 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2 group">
-            <Image src="/ocr.jpg" alt="FYP Logo" width={40} height={40} className="rounded-md object-contain border border-white/20 group-hover:border-blue-500 transition-colors" />
+            <Image src="/ocr.jpg" alt="FYP Logo" width={69} height={69} className="rounded-md object-contain group-hover:border-blue-500 transition-colors" />
             <span className="text-xl font-bold text-white tracking-wide hidden sm:block">FYP OCR</span>
           </Link>
 

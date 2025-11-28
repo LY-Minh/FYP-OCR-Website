@@ -6,14 +6,14 @@ export default function Purpose() {
       title: "Accelerating Khmer LLM Development",
       description:
         "High-quality Khmer text is essential for training large language models, but most existing datasets are tiny or inconsistent. Our OCR pipeline helps generate cleaner, larger corpora so Khmer can be supported by the same advanced AI technologies available in other languages.",
-      image: "/pic1.png", // Using placeholder as requested
+      image: "/purpose1.jpg", // Using placeholder as requested
       reverse: false, // Image Left, Text Right
     },
     {
       title: "Research and Development",
       description:
         "This page is part of an ongoing project to improve Khmer OCR performance. We’re experimenting with different models, datasets, and layouts to see what works best for real users. Your uploads and feedback help us understand where the system succeeds—and where we still need to improve.",
-      image: "/pic1.png", // Using placeholder as requested
+      image: "/purpose2.png", // Using placeholder as requested
       reverse: true, // Text Left, Image Right
     },
   ];
