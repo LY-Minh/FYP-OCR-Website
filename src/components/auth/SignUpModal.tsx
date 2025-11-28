@@ -3,12 +3,20 @@
 import { useState } from "react";
 import { X, Loader2, Lock, Mail, User, AlertCircle } from "lucide-react";
 import { registerUser } from "@/lib/auth-service";
-
+import { z } from "zod";
 type Props = {
   isOpen: boolean;
   onClose: () => void;
   onSwitchToLogin: () => void; // Callback to switch back to login
 };
+const registerSchema = z.object({
+  username: z.string().min(3, "Username must be at least 3 characters"),
+  email: z.string().email("Invalid email address"),
+  password: z.string().min(8, "Password must be at least 8 characters"),
+  confirmPassword: z.string().min(8, "Confirm Password must be at least 8 characters"),
+}).refine((data) => data.password === data.confirmPassword, {
+  message: "Passwords do not match",
+});
 
 export default function SignUpModal({ isOpen, onClose, onSwitchToLogin }: Props) {
   const [username, setUsername] = useState("");
@@ -26,8 +34,9 @@ export default function SignUpModal({ isOpen, onClose, onSwitchToLogin }: Props)
     setIsLoading(true);
     setError(null);
 
-    if (password !== confirmPassword) {
-      setError("Passwords do not match.");
+    const validation = registerSchema.safeParse({ username, email, password, confirmPassword });
+    if (!validation.success) {
+      setError(validation.error.issues?.[0]?.message || "Validation failed");
       setIsLoading(false);
       return;
     }
