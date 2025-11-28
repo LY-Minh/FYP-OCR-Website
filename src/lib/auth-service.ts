@@ -78,7 +78,7 @@ export async function registerUser(credentials: RegisterCredentials): Promise<Au
 }
 
 // --- Fetch User Profile ---
-async function fetchUserProfile(token: string): Promise<AuthResponse> {
+export async function fetchUserProfile(token: string): Promise<AuthResponse> {
   try {
     const response = await fetch(`${API_BASE_URL}/auth/me`, {
       method: "GET",

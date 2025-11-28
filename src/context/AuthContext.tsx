@@ -3,7 +3,7 @@
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
 import { createContext, useContext, useState, ReactNode, useEffect } from "react";
-
+import { fetchUserProfile } from "@/lib/auth-service";
 type User = {
   name: string;
   email: string;
@@ -32,35 +32,25 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   // --- RESTORE SESSION ON LOAD ---
   useEffect(() => {
-    const restoreSession = async () => {
-      const token = localStorage.getItem("accessToken");
-      if (token) {
-        try {
-          // Verify token with backend
-          const response = await fetch(`${API_BASE_URL}/auth/me`, {
-            headers: { Authorization: `Bearer ${token}` },
-          });
-          
-          if (response.ok) {
-            const data = await response.json();
-            // Map backend user to frontend user
-            setUser({
-              name: data.user.username, // Adjust based on your backend response
-              email: data.user.email
-            });
-          } else {
-            // Token invalid/expired
-            localStorage.removeItem("accessToken");
-          }
-        } catch (error) {
-          console.error("Session restore failed", error);
-        }
-      }
-      setLoading(false);
-    };
+  const restoreSession = async () => {
+    const token = localStorage.getItem("accessToken");
+    if (token) {
+      // Use the service function instead of manual fetch
+      const result = await fetchUserProfile(token);
 
-    restoreSession();
-  }, []);
+      if (result.success && result.user) {
+         setUser({
+           name: result.user.username,
+           email: result.user.email
+         });
+      } else {
+         localStorage.removeItem("accessToken");
+      }
+    }
+    setLoading(false);
+  };
+  restoreSession();
+}, []);
 
   const login = (userData: User) => setUser(userData);
   
